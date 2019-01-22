@@ -43,7 +43,7 @@ When a miner finds a valid solution, it builds a transactions locally and signs 
 To make the transaction go through the network, the address belonging to the private key has to have some ethereum on it. It is HIGHLY(!) recommended to make a new address and fuel that address with some Ethereum\footnote{At current gas fees, 0.05 ether will provide you with approximately 300 potential blockreward claims.}.
 A default gas price and gas limit is set in the code but can easily be changed to ones preferences. A few preconfigured settings come with the miner:
 \begin{itemize}
-\item cheap: low gas usage but slower transactions
+\item slow: low gas usage but slower transactions
 \item normal: normal gas usage and normal transaction speed
 \item fast: high gas usage but fast transactions
 \end{itemize}
@@ -57,4 +57,10 @@ The miner is written in Python and makes use of the following modules:
     \item threading \url{https://docs.python.org/3/library/threading.html}
     \item time (native module) \url{https://docs.python.org/3/library/time.html}
 \end{itemize}
+
+The modules web3, json and threading have to be installed using:
+\begin{verbatim}
+pip intall [MODULE NAME]    
+\end{verbatim}
+Python 3.6 or higher is required. At the time of writing, no compiled .EXE is available yet.
 \end{document}
