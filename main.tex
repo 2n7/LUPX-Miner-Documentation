@@ -9,6 +9,7 @@
 \usepackage{enumerate}
 \usepackage{amsmath}
 \usepackage{verbatim}
+\usepackage{hyperref}
 
 \title{LUPX Miner Documentation}
 \author{Hilobrain}
@@ -40,12 +41,20 @@ The conract and miner both use the native KECCAK256/SHA3 to produce hashes.\\
 When starting the miner, the miner makes calls to the contract to get the required information to start hashing. Since it could happen that someone else finds a valid block before your miner does and thus invalidates your solution and thus makes your miner waste time, the miner checks on a regular interval whether the puzzle has updated or not. The duration of this interval can easily be modified by the miner to make calls faster to not lose hashing time or make it slower when the miner has a low bandwidth network. Since everyones mining setup is different, the miner has to find an optimum for themselves. The default interval time is 10 seconds.\\
 When a miner finds a valid solution, it builds a transactions locally and signs it with his private key. Once succesfully signed, it publishes the raw transaction to the network using the Infura WEB3 provider\footnote{A default project ID is included. If a miner does not want to be merged in one project he can simply use a different ID. Other WEB3 providers work as well.}. \\
 To make the transaction go through the network, the address belonging to the private key has to have some ethereum on it. It is HIGHLY(!) recommended to make a new address and fuel that address with some Ethereum\footnote{At current gas fees, 0.05 ether will provide you with approximately 300 potential blockreward claims.}.
-A default gas price and gas limit is set in the code but can easily be changed to onces preferences. A few preconfigured settings come with the miner:
+A default gas price and gas limit is set in the code but can easily be changed to ones preferences. A few preconfigured settings come with the miner:
 \begin{itemize}
 \item cheap: low gas usage but slower transactions
 \item normal: normal gas usage and normal transaction speed
 \item fast: high gas usage but fast transactions
 \end{itemize}
-Each miner can determine for themselves whether they want fast transactions and thus have a slightly higher chance of getting the blockreward but pay some more gas for it or to go with the normal or cheap option. This obviously depends on the miner's situation. 
+Each miner can determine for themselves whether they want fast transactions and thus have a slightly higher chance of getting the blockreward but pay some more gas for it or to go with the normal or cheap option. This obviously depends on the miner's situation.
 
+\subsubsection{Dependencies}
+The miner is written in Python and makes use of the following modules:
+\begin{itemize}
+    \item web3 \url{https://github.com/ethereum/web3.py}
+    \item json \url{https://docs.python.org/3/library/json.html}
+    \item threading \url{https://docs.python.org/3/library/threading.html}
+    \item time (native module) \url{https://docs.python.org/3/library/time.html}
+\end{itemize}
 \end{document}
