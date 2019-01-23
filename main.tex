@@ -48,6 +48,7 @@ A default gas price and gas limit is set in the code but can easily be changed t
 \item fast: high gas usage but fast transactions
 \end{itemize}
 Each miner can determine for themselves whether they want fast transactions and thus have a slightly higher chance of getting the blockreward but pay some more gas for it or to go with the normal or cheap option. This obviously depends on the miner's situation. For those who want to manually set the gas price\footnote{Be cautious when manually changing gas parameters and only do this if you know what you're doing. Wrong values will immediately result in losing funds.}, the paramaters in the code are easily adjustable.
+\pagebreak
 
 \subsubsection{Dependencies}
 The miner is written in Python and makes use of the following modules:
@@ -58,7 +59,8 @@ The miner is written in Python and makes use of the following modules:
     \item time (native module) \url{https://docs.python.org/3/library/time.html}
 \end{itemize}
 
-The modules web3, json and threading have to be installed using:
+\subsubsection{Installation process}
+The modules web3, json and threading stated above have to be installed using:
 \begin{verbatim}
 pip intall [MODULE NAME]    
 \end{verbatim}
