@@ -35,7 +35,7 @@ The initial blockreward is 200 $LUPX$. Each 25,000 blocks the blockreward halves
 On the contract, some debugging functions are defined such as: \begin{verbatim}
     function testHASH(uint256 nonce, bytes32 challenge_digest)
 \end{verbatim}  
-These functions are used to debug the miner and check whether a solution is valid or not without making a transaction. The function to check solutions before submitting them can be turned on and off in the miner to prevent losing gas to invalid solution submissions.
+These functions are used to debug the miner and check whether a solution is valid or not without making a transaction.
 
 \subsection{The Mining Software}
 The conract and miner both use the native KECCAK256/SHA3 to produce hashes.\\
