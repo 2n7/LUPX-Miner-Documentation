@@ -39,7 +39,7 @@ These functions are used to debug the miner and check whether a solution is vali
 
 \subsection{The Mining Software}
 The conract and miner both use the native KECCAK256/SHA3 to produce hashes.\\
-When starting the miner, the miner makes calls to the contract to get the required information to start hashing. Since it could happen that someone else finds a valid block before your miner does and thus invalidates your solution and thus makes your miner waste time, the miner checks on a regular interval whether the puzzle has updated or not. The duration of this interval can easily be modified by the miner to make calls faster to not lose hashing time or make it slower when the miner has a low bandwidth network. Since everyones mining setup is different, the miner has to find an optimum for themselves. The default interval time is 5 seconds.\\
+When starting the miner, the miner makes calls to the contract to get the required information to start hashing. Since it could happen that someone else finds a valid block before your miner does and thus invalidates your solution and thus makes your miner waste time, the miner checks on a regular interval whether the puzzle has updated or not. The duration of this interval can easily be modified by the miner to make calls faster to not lose hashing time or make it slower when the miner has a slow network. Since everyones mining setup is different, the miners have to find an optimum for themselves. The default interval time is 5 seconds.\\
 When a miner finds a valid solution, it builds a transactions locally and signs it with his private key. Once succesfully signed, it publishes the raw transaction to the network using the Infura WEB3 provider\footnote{A default project ID is included. If a miner does not want to be merged in one Infura project he can simply use a different ID. Other WEB3 providers work as well.}. \\
 To make the transaction go through the network, the address belonging to the private key has to have some ethereum on it. It is HIGHLY(!) recommended to make a new address and fuel that address with some Ethereum\footnote{At current gas fees, 0.05 ether will provide you with approximately 300 potential blockreward claims.}.
 A default gas price and gas limit is set in the code but can easily be changed to ones preferences. A few preconfigured settings come with the miner:
@@ -61,7 +61,7 @@ The miner is written in Python and makes use of the following modules:
 \end{itemize}
 
 \subsubsection{Installation process}
-First, download the miner.py and the ABI.json  here: \url{https://github.com/Hilobrain/LUPX-Miner/tree/master/src/miner} and place them together in a folder. To run the miner, make sure you have Python 3.6 or higher installed on your machine. The modules "web3", "json" and "threading" (as stated above) have to be installed using:
+First, download the miner.py and the ABI.json  here: \url{https://github.com/Hilobrain/LUPX-Miner/tree/master/src/miner} and place them together in the same folder. To run the miner, make sure you have Python 3.6 or higher installed on your machine. You can download the newest version of Python here: \url{https://www.python.org/downloads/}. The modules "web3", "json" and "threading" (as stated above) have to be installed using:
 \begin{verbatim}
 pip intall [MODULE NAME]    
 \end{verbatim}
