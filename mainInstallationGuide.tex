@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper]{geometry}
+\usepackage[english]{babel}
+\usepackage{url}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{verbatim}
+\usepackage{hyperref}
+
+\title{LUPX Miner Documentation}
+\author{The Lupecoin Project}
+\date{January 2019}
+
+\begin{document}
+
+\maketitle
+
+This article is written to clarify the installation process for those who are experiencing problems with the current installers.
+
+\section{Installing the dependencies}
+The miner depends on a few modules as listed in the documentation. Three of the four modules are native: "time", "json" and "threading". One module, "web3" is not native.
+
+Since the "web3" module depends on some C++ build-utilities, you'll need to install the "Microsoft Visual Studio 14.0 C++ buildtools" from here: \\ \url{https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=15}. Note that if you have "Microsoft Visual Studio" already installed, you most probably don't have to install the build-utilities separately! When prompted to install the SDK's or not, do so. \\ 
+After you've installed the C++ build-utilities, open one of the installers (.py) (multiple installers are included because not every installer works on every machine). Now, you can open the miner by simply double clicking the "LUPX-Miner.py" file in the "miner" folder. It may take some time before something pops up the first time because the "web3" module has to configure. \\
+If no installer seems to work, you can manually install the "web3" module by doing the following steps:
+\begin{itemize}
+    \item Go to your Python installation path. (Something like: "C/Users/NAME/Appdata/Local/ Programs/Python/PythonXXXX/Scripts"). Here, there will be three different versions of "pip". 
+    \item COPY (DO NOT DELETE) the "pip.exe" and place it in the folder of the "installer" of the "LUPX-Miner" folder. So you will have a copy of the "pip.exe" file and the "setup.bat" file in the SAME folder.
+    \item Now run the "setup.bat" file. It can happen that there will be some errors in red but that's because three of the four modules are native.
+    \item Check if it gives any errors. If it says something like "You need Microsoft Visual C++ 14.0 build-utils", make sure you properly installed those. Here is a thread on issues on the web3 module: \url{https://github.com/ethereum/web3.py/issues/810}
+\end{itemize}
+\end{document}
